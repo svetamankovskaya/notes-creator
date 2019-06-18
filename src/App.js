@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './App.module.css';
+import NoteEditorCreator from './components/NoteEditorCreator/NoteEditorCreator';
 
 const App = () => {
   return (
@@ -11,10 +12,7 @@ const App = () => {
         <div>Поиск</div>
         <div>Заметки список всех</div>
       </div>
-      <div className={classes.noteEditor}>
-        <div>Поле добавления/редактирования заметки</div>
-        <div>Кнопка "создать заметку"</div>
-      </div>
+     <NoteEditorCreator />
       </div>
   );
 }
