@@ -1,0 +1,30 @@
+.appWrapper {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 35% 65%;
+  grid-template-areas: "header header"
+                       "navigation editor";
+  grid-gap: 10px;
+  text-align: center;
+  min-height: 100vh;
+  width: 70%;
+  margin: 0 auto;
+  color: white;
+}
+
+.appHeader {
+  grid-area: header;
+  font-size: calc(10px + 2vmin);
+  background: rgba(183, 0, 255, 0.479);
+}
+
+.nav {
+  grid-area: navigation;
+  background: rgba(23, 235, 111, 0.514);
+}
+
+.noteEditor{
+  grid-area: editor;
+  background: gold;
+}
+

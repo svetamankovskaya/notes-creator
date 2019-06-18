@@ -1,14 +1,20 @@
 import React from 'react';
-import './App.css';
+import classes from './App.module.css';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className={classes.appWrapper}>
+      <header className={classes.appHeader}>
           Заметки
       </header>
-      <div>Хештеги</div>
-      <div>Поле заметок</div>
+      <div className={classes.nav}>
+        <div>Поиск</div>
+        <div>Заметки список всех</div>
+      </div>
+      <div className={classes.noteEditor}>
+        <div>Поле добавления/редактирования заметки</div>
+        <div>Кнопка "создать заметку"</div>
+      </div>
       </div>
   );
 }
