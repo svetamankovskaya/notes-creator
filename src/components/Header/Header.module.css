@@ -1,0 +1,5 @@
+.appHeader {
+  grid-area: header;
+  font-size: calc(10px + 2vmin);
+  background: rgba(183, 0, 255, 0.479);
+}
