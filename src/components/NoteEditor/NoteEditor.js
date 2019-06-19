@@ -1,7 +1,7 @@
 import React from 'react';
-import classes from './NoteEditorCreator.module.css';
+import classes from './NoteEditor.module.css';
 
-const NoteEditorCreator = (props) => {
+const NoteEditor = (props) => {
   return (
     <div className={classes.noteEditor}>
       <div>Кнопка "создать заметку"</div>
@@ -10,4 +10,4 @@ const NoteEditorCreator = (props) => {
   )
 }
 
-export default NoteEditorCreator;
+export default NoteEditor;

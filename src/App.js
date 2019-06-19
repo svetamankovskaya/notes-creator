@@ -3,8 +3,7 @@ import classes from './App.module.css';
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
 import { BrowserRouter, Route } from 'react-router-dom';
-import NoteEditorCreatorContainer from './components/NoteEditorCreator/NoteEditorCreatorContainer';
-import NoteEditorCreator from './components/NoteEditorCreator/NoteEditorCreator';
+import NoteEditorContainer from './components/NoteEditor/NoteEditorContainer';
 
 const App = () => {
   return (
@@ -12,7 +11,7 @@ const App = () => {
     <div className={classes.appWrapper}>
       <Header />
       <Navigation />
-      <NoteEditorCreatorContainer />
+      <NoteEditorContainer />
       </div>
     </BrowserRouter>
   );
