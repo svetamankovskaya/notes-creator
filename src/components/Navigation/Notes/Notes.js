@@ -1,15 +1,17 @@
 import React from 'react';
 import classes from './Notes.module.css';
+import { NavLink } from 'react-router-dom';
 
 let Note = (props) => {
-    return <div className={classes.noteWrapper}>
-        <div>{props.note.text}</div>
+    return <div className={classes.noteWrapper}
+        onClick={() => { props.onSelectedNoteChanged(props.note) }}>
+        <div >{props.note.text}</div>
         <div>{props.note.title}</div>
     </div>
 }
 
 let Notes = (props) => {
-    let notesElements = props.notes.map(note => <Note key={note.id} note={note}/>)
+    let notesElements = props.notes.map(note => <Note key={note.id} note={note} onSelectedNoteChanged={props.onSelectedNoteChanged} />)
     return <div>
         {notesElements}
     </div>

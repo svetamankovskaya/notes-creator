@@ -1,9 +1,10 @@
 import React from 'react';
 import classes from './App.module.css';
-import NoteEditorCreator from './components/NoteEditorCreator/NoteEditorCreator';
 import Header from './components/Header/Header';
 import Navigation from './components/Navigation/Navigation';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import NoteEditorCreatorContainer from './components/NoteEditorCreator/NoteEditorCreatorContainer';
+import NoteEditorCreator from './components/NoteEditorCreator/NoteEditorCreator';
 
 const App = () => {
   return (
@@ -11,8 +12,8 @@ const App = () => {
     <div className={classes.appWrapper}>
       <Header />
       <Navigation />
-      <NoteEditorCreator />
-    </div>
+      <NoteEditorCreatorContainer />
+      </div>
     </BrowserRouter>
   );
 }

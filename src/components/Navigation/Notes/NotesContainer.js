@@ -1,7 +1,7 @@
 import React from 'react';
 import * as axios from 'axios';
 import { connect } from 'react-redux';
-import { setNotes } from '../../../redux/notes-reducer';
+import { setNotes, changeSelectedNote } from '../../../redux/notes-reducer';
 import Notes from './Notes';
 
 
@@ -13,8 +13,12 @@ class NotesContainer extends React.Component {
             });
     }
 
+    onSelectedNoteChanged = (selectedNote) => {
+        this.props.changeSelectedNote(selectedNote);
+    }
+
     render() {
-        return <Notes notes={this.props.notes} />
+        return <Notes notes={this.props.notes} onSelectedNoteChanged={this.onSelectedNoteChanged}/>
     }
 }
 
@@ -25,4 +29,4 @@ let mapStateToProps = (state) => {
 }
 
 
-export default connect(mapStateToProps, { setNotes })(NotesContainer);
+export default connect(mapStateToProps, { setNotes, changeSelectedNote })(NotesContainer);
