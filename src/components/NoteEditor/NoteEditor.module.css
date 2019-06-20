@@ -1,13 +1,13 @@
 .noteEditor{
     grid-area: editor;
-    background: rgba(168, 159, 159, 0.377);
+    background: rgba(168, 159, 159, 0.671);
 }
 
 .noteWrapper{
     width: 500px;
     height: 500px;
     background-color:  rgba(228, 228, 24, 0.384);
-    margin: 10px auto;
+    margin: 5px auto;
 }
 
 .noteTitle{
@@ -22,4 +22,44 @@
 .hashtags{
   height: 40px;
   background-color: gold;
+}
+
+.newNoteButton{
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #f1410bc9;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 15px;
+  width: 180px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.newNoteButton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.newNoteButton span:after {
+  content: '\FF0B';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.newNoteButton:hover span {
+  padding-right: 25px;
+}
+
+.newNoteButton:hover span:after {
+  opacity: 1;
+  right: 0;
 }
