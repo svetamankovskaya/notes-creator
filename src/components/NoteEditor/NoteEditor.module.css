@@ -1,4 +1,25 @@
 .noteEditor{
     grid-area: editor;
-    background: gold;
-  }
+    background: rgba(168, 159, 159, 0.377);
+}
+
+.noteWrapper{
+    width: 500px;
+    height: 500px;
+    background-color:  rgba(228, 228, 24, 0.384);
+    margin: 10px auto;
+}
+
+.noteTitle{
+  height: 40px;
+  background-color: gold;
+}
+
+.noteText{
+  height: 420px;
+}
+
+.hashtags{
+  height: 40px;
+  background-color: gold;
+}
