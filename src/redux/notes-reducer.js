@@ -1,32 +1,37 @@
 const SET_NOTES = 'SET_NOTES';
-const CHANGE_SELECTED_NOTE = 'CHANGE_SELECTED_NOTE';
-const DELETE_NOTE = 'DELETE_NOTE';
-const ADD_NOTE = 'ADD_NOTE';
-const EDIT_NOTE = 'EDIT_NOTE';
+const CHOOSE_SELECTED_NOTE = 'CHOOSE_SELECTED_NOTE';
+const UPDATE_SELECTED_NOTE = 'UPDATE_SELECTED_NOTE';
 
 let initialState = {
-    notes: [],
+    notes: [{ title: 'initial', text: 'initial text', id: 0 }],
     selectedNote: {}
 }
 
 export const notesReducer = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         case SET_NOTES:
-        return {
-            ...state,
-            notes: action.notes
-        }
-        case CHANGE_SELECTED_NOTE:
-        return {
-            ...state,
-            selectedNote: action.selectedNote
+            return {
+                ...state,
+                notes: action.notes
+            }
+        case CHOOSE_SELECTED_NOTE:
+            return {
+                ...state,
+                selectedNote: action.selectedNote
+            }
+        case UPDATE_SELECTED_NOTE: {
+            return {
+                ...state,
+                selectedNote: { ...state.selectedNote, title: action.changedTitle }
+            }
         }
         default:
             return state;
     }
 }
 
-export const setNotes = (notes) => ({type: SET_NOTES, notes});
-export const changeSelectedNote = (selectedNote) => ({type: CHANGE_SELECTED_NOTE, selectedNote});
+export const setNotes = (notes) => ({ type: SET_NOTES, notes });
+export const chooseSelectedNote = (selectedNote) => ({ type: CHOOSE_SELECTED_NOTE, selectedNote });
+export const updateSelectedNote = (changedTitle) => ({ type: UPDATE_SELECTED_NOTE, changedTitle });
 
 export default notesReducer;

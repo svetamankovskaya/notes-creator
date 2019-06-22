@@ -4,7 +4,7 @@ import noteEditorCreatorReducer from './noteEditorCreator-reducer';
 
 let reducers = combineReducers({
     notesPage: notesReducer, 
-    noteEditorCreatorPage: noteEditorCreatorReducer
+    noteEditorCreatorPage: notesReducer
 })
 
 let store = createStore(reducers);

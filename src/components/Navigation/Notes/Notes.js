@@ -1,6 +1,5 @@
 import React from 'react';
 import classes from './Notes.module.css';
-import { NavLink } from 'react-router-dom';
 
 let Note = (props) => {
     return <div className={classes.noteWrapper}
