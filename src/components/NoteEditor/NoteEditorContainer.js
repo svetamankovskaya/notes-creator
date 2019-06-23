@@ -22,14 +22,25 @@ class NoteEditorContainer extends React.Component {
                 this.props.setNotes(response.data.notes);
             })
         })
-        
+    }
+
+    deleteNote = (note) => {
+        axios.delete(`http://localhost:2000/notes/${note.id}`)
+        .then(() => {
+            this.props.updateSelectedNote({title: '', text: ''});
+            axios.get(`http://localhost:2000/notes`)
+            .then(response => {
+                this.props.setNotes(response.data.notes);
+            })
+        })
     }
 
     render() {
         return <NoteEditor note={this.props.selectedNote}
             changeTitle={this.changeTitle}
             changeNoteBody={this.changeNoteBody}
-            saveNote={this.saveNote} />
+            saveNote={this.saveNote}
+            deleteNote={this.deleteNote} />
     }
 }
 

@@ -19,6 +19,10 @@ const NoteEditor = (props) => {
     props.saveNote(props.note);
   }
 
+  let deleteNote = () => {
+    props.deleteNote(props.note);
+  }
+
   return (
     <div className={classes.noteEditor}>
       <div>
@@ -30,7 +34,7 @@ const NoteEditor = (props) => {
         <div className={classes.noteTitle}>
           <button onClick={saveNote}>Save</button>
           <textarea onChange={onTitleChange} ref={newTitleElement} value={props.note.title} />
-          <button>Delete</button>
+          <button onClick={deleteNote}>Delete</button>
         </div>
         <div className={classes.noteText}>
           <textarea onChange={onNoteBodyChange} ref={newNoteBody} value={props.note.text} />
