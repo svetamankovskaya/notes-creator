@@ -33,6 +33,7 @@ const NoteEditor = (props) => {
   };
 
   let saveNote = () => {
+    console.log(props.note);
     props.saveNote(props.note);
   }
 
@@ -61,7 +62,7 @@ const NoteEditor = (props) => {
           <textarea onChange={onNoteBodyChange} ref={newNoteBody} value={props.note.text} placeholder="Введите текст заметки" />
         </div>
         <div className={classes.hashtags} >
-        {props.note.hashtags ? props.note.hashtags.map(hashtag => <div>{hashtag}</div> ) : 'Хештеги'}
+        {props.note.hashtags ? props.note.hashtags.map((hashtag, i) => <div key={i}>{hashtag}</div> ) : 'Хештеги'}
         </div>
       </div>
 

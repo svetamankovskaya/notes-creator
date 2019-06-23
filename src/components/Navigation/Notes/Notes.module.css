@@ -3,3 +3,11 @@
     border: 1px solid black;
     cursor: pointer;
 }
+
+.hashtags{
+    display: flex;
+}
+
+.hashtags div{
+    margin: 5px;
+}

@@ -6,7 +6,7 @@ const UPDATE_SELECTED_NOTE_BODY = 'UPDATE_SELECTED_NOTE_BODY';
 const ADD_NOTE_HASHTAGS = 'ADD_NOTE_HASHTAGS';
 
 let initialState = {
-    notes: [{ title: 'initial', text: 'initial text', hashtags: ['123', '223'], id: 0 }],
+    notes: [{ title: 'initial', text: 'initial text', hashtags: [], id: 0 }],
     selectedNote: {}
 }
 

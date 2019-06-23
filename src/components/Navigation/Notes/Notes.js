@@ -5,7 +5,7 @@ let Note = (props) => {
     return <div className={classes.noteWrapper}
         onClick={() => { props.onSelectedNoteChanged(props.note) }}>
         <div>{props.note.title}</div>
-        <div>{props.note.text}</div>
+        <div className={classes.hashtags}>{props.note.hashtags.map((hashtag, i) => <div key={i}>{hashtag}</div>)}</div>
     </div>
 }
 
