@@ -4,8 +4,8 @@ import classes from './Notes.module.css';
 let Note = (props) => {
     return <div className={classes.noteWrapper}
         onClick={() => { props.onSelectedNoteChanged(props.note) }}>
-        <div >{props.note.text}</div>
-        <div>{props.note.title}</div>
+        <div >{props.note.title}</div>
+        <div>{props.note.text}</div>
     </div>
 }
 

@@ -24,7 +24,9 @@ const NoteEditor = (props) => {
       </div>
       <div className={classes.noteWrapper}>
         <div className={classes.noteTitle}>
+          <button>Save</button>
           <textarea onChange={onTitleChange} ref={newTitleElement} value={props.note.title} />
+          <button>Delete</button>
         </div>
         <div className={classes.noteText}>
           <textarea onChange={onNoteBodyChange} ref={newNoteBody} value={props.note.text} />
