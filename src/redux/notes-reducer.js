@@ -1,5 +1,6 @@
 const SET_NOTES = 'SET_NOTES';
 const CHOOSE_SELECTED_NOTE = 'CHOOSE_SELECTED_NOTE';
+const UPDATE_SELECTED_NOTE = 'UPDATE_SELECTED_NOTE';
 const UPDATE_SELECTED_NOTE_TITLE = 'UPDATE_SELECTED_NOTE_TITLE';
 const UPDATE_SELECTED_NOTE_BODY = 'UPDATE_SELECTED_NOTE_BODY';
 
@@ -20,6 +21,11 @@ export const notesReducer = (state = initialState, action) => {
                 ...state,
                 selectedNote: action.selectedNote
             }
+        case UPDATE_SELECTED_NOTE:
+            return {
+                ...state,
+                selectedNote: action.note
+            }
         case UPDATE_SELECTED_NOTE_TITLE: {
             return {
                 ...state,
@@ -39,6 +45,7 @@ export const notesReducer = (state = initialState, action) => {
 
 export const setNotes = (notes) => ({ type: SET_NOTES, notes });
 export const chooseSelectedNote = (selectedNote) => ({ type: CHOOSE_SELECTED_NOTE, selectedNote });
+export const updateSelectedNote = (note) => ({type: UPDATE_SELECTED_NOTE, note});
 export const updateSelectedNoteTitle = (changedTitle) => ({ type: UPDATE_SELECTED_NOTE_TITLE, changedTitle });
 export const updateSelectedNoteBody = (changedNoteBody) => ({type: UPDATE_SELECTED_NOTE_BODY, changedNoteBody });
 

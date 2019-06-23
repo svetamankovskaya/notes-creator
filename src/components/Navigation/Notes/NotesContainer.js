@@ -18,13 +18,16 @@ class NotesContainer extends React.Component {
     }
 
     render() {
-        return <Notes notes={this.props.notes} onSelectedNoteChanged={this.onSelectedNoteChanged}/>
+        return <Notes notes={this.props.notes}
+        selectedNote={this.props.selectedNote}
+        onSelectedNoteChanged={this.onSelectedNoteChanged}/>
     }
 }
 
 let mapStateToProps = (state) => {
     return {
         notes: state.notesPage.notes,
+        selectedNote: state.notesPage.selectedNote
     }
 }
 

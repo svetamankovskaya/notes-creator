@@ -1,7 +1,8 @@
 import React from 'react';
+import * as axios from 'axios';
 import { connect } from 'react-redux';
 import NoteEditor from './NoteEditor';
-import { updateSelectedNoteTitle, updateSelectedNoteBody } from '../../redux/notes-reducer';
+import { setNotes, updateSelectedNoteTitle, updateSelectedNoteBody, updateSelectedNote } from '../../redux/notes-reducer';
 
 class NoteEditorContainer extends React.Component {
     changeTitle = (changedTitle) => {
@@ -12,10 +13,23 @@ class NoteEditorContainer extends React.Component {
         this.props.updateSelectedNoteBody(changedNoteBody)
     }
 
+    saveNote = (note) => {
+        axios.post(`http://localhost:2000/notes`, note)
+        .then(response => {
+            this.props.updateSelectedNote(response.data);
+            axios.get(`http://localhost:2000/notes`)
+            .then(response => {
+                this.props.setNotes(response.data.notes);
+            })
+        })
+        
+    }
+
     render() {
         return <NoteEditor note={this.props.selectedNote}
             changeTitle={this.changeTitle}
-            changeNoteBody={this.changeNoteBody} />
+            changeNoteBody={this.changeNoteBody}
+            saveNote={this.saveNote} />
     }
 }
 
@@ -26,4 +40,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateSelectedNoteTitle, updateSelectedNoteBody })(NoteEditorContainer);
+export default connect(mapStateToProps, { updateSelectedNoteTitle, updateSelectedNoteBody, setNotes, updateSelectedNote })(NoteEditorContainer);
