@@ -12,8 +12,25 @@ const NoteEditor = (props) => {
 
   let onNoteBodyChange = () => {
     let changedNoteBody = newNoteBody.current.value;
+    let arrStrings = changedNoteBody.split(' ').filter(string => string.startsWith('#'));
+    let hashtags = getUnique(arrStrings);
+    props.addNoteHashtags(hashtags);
     props.changeNoteBody(changedNoteBody);
   }
+
+  let getUnique = (arr) => {
+    var i = 0,
+    current,
+    length = arr.length,
+    unique = [];
+    for (; i < length; i++) {
+      current = arr[i];
+      if (!~unique.indexOf(current)) {
+        unique.push(current);
+      }
+    }
+    return unique;
+  };
 
   let saveNote = () => {
     props.saveNote(props.note);
@@ -28,7 +45,7 @@ const NoteEditor = (props) => {
   }
 
   return (
-    <div className={classes.noteEditor}>
+        <div className={classes.noteEditor}>
       <div>
         <button className={classes.newNoteButton} onClick={clearNoteInfo}>
           <span>Новая заметка</span>
@@ -43,7 +60,9 @@ const NoteEditor = (props) => {
         <div className={classes.noteText}>
           <textarea onChange={onNoteBodyChange} ref={newNoteBody} value={props.note.text} placeholder="Введите текст заметки" />
         </div>
-        <div className={classes.hashtags}>Hashtags</div>
+        <div className={classes.hashtags} >
+        {props.note.hashtags ? props.note.hashtags.map(hashtag => <div>{hashtag}</div> ) : 'Хештеги'}
+        </div>
       </div>
 
     </div>

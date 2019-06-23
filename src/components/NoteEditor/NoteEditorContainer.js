@@ -2,7 +2,7 @@ import React from 'react';
 import * as axios from 'axios';
 import { connect } from 'react-redux';
 import NoteEditor from './NoteEditor';
-import { setNotes, updateSelectedNoteTitle, updateSelectedNoteBody, updateSelectedNote } from '../../redux/notes-reducer';
+import { setNotes, updateSelectedNoteTitle, updateSelectedNoteBody, updateSelectedNote, addNoteHashtags } from '../../redux/notes-reducer';
 
 class NoteEditorContainer extends React.Component {
     changeTitle = (changedTitle) => {
@@ -11,6 +11,10 @@ class NoteEditorContainer extends React.Component {
 
     changeNoteBody = (changedNoteBody) => {
         this.props.updateSelectedNoteBody(changedNoteBody)
+    }
+
+    addNoteHashtags = (hashtags) => {
+        this.props.addNoteHashtags(hashtags);
     }
 
     saveNote = (note) => {
@@ -46,7 +50,8 @@ class NoteEditorContainer extends React.Component {
             changeNoteBody={this.changeNoteBody}
             saveNote={this.saveNote}
             deleteNote={this.deleteNote}
-            clearNoteInfo={this.clearNoteInfo} />
+            clearNoteInfo={this.clearNoteInfo}
+            addNoteHashtags={this.addNoteHashtags} />
     }
 }
 
@@ -57,4 +62,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { updateSelectedNoteTitle, updateSelectedNoteBody, setNotes, updateSelectedNote })(NoteEditorContainer);
+export default connect(mapStateToProps, { updateSelectedNoteTitle, updateSelectedNoteBody, setNotes, updateSelectedNote, addNoteHashtags })(NoteEditorContainer);

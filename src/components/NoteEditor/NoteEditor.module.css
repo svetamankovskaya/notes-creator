@@ -43,7 +43,13 @@
 
 .hashtags{
   height: 40px;
+  width: 100%;
   background-color: gold;
+  display: flex;
+}
+
+.hashtags div{
+  margin: 5px;
 }
 
 .newNoteButton{
