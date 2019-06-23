@@ -37,11 +37,11 @@ const NoteEditor = (props) => {
       <div className={classes.noteWrapper}>
         <div className={classes.noteTitle}>
           <button onClick={saveNote}>Save</button>
-          <textarea onChange={onTitleChange} ref={newTitleElement} value={props.note.title} />
+          <textarea onChange={onTitleChange} ref={newTitleElement} value={props.note.title} placeholder="Название заметки" />
           <button onClick={deleteNote}>Delete</button>
         </div>
         <div className={classes.noteText}>
-          <textarea onChange={onNoteBodyChange} ref={newNoteBody} value={props.note.text} />
+          <textarea onChange={onNoteBodyChange} ref={newNoteBody} value={props.note.text} placeholder="Введите текст заметки" />
         </div>
         <div className={classes.hashtags}>Hashtags</div>
       </div>

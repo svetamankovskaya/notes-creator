@@ -6,7 +6,6 @@
 .noteWrapper{
     width: 500px;
     height: 500px;
-    background-color:  rgba(228, 228, 24, 0.384);
     margin: 5px auto;
 }
 
@@ -17,8 +16,11 @@
 
 .noteTitle textarea{
   width: 70%;
-  background-color: gold;
+  background-color: transparent;
   outline: none;
+  padding: auto 0;
+  margin: auto 0;
+  border: 0;
 }
 
 .noteTitle button{
@@ -27,6 +29,16 @@
 
 .noteText{
   height: 420px;
+}
+
+.noteText textarea{
+  width: 470px;
+  height: 390px;
+  outline: none;
+  padding: 15px;
+  border: 0;
+  background-color:  rgba(228, 228, 24, 0.384);
+  margin: 0 auto;
 }
 
 .hashtags{
