@@ -23,10 +23,14 @@ const NoteEditor = (props) => {
     props.deleteNote(props.note);
   }
 
+  let clearNoteInfo = () => {
+    props.clearNoteInfo();
+  }
+
   return (
     <div className={classes.noteEditor}>
       <div>
-        <button className={classes.newNoteButton}>
+        <button className={classes.newNoteButton} onClick={clearNoteInfo}>
           <span>Новая заметка</span>
         </button>
       </div>

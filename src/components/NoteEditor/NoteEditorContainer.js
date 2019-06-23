@@ -35,12 +35,18 @@ class NoteEditorContainer extends React.Component {
         })
     }
 
+    
+    clearNoteInfo = () => {
+        this.props.updateSelectedNote({title: '', text: ''});
+    }
+
     render() {
         return <NoteEditor note={this.props.selectedNote}
             changeTitle={this.changeTitle}
             changeNoteBody={this.changeNoteBody}
             saveNote={this.saveNote}
-            deleteNote={this.deleteNote} />
+            deleteNote={this.deleteNote}
+            clearNoteInfo={this.clearNoteInfo} />
     }
 }
 
