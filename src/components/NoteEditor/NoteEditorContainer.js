@@ -3,6 +3,7 @@ import * as axios from 'axios';
 import { connect } from 'react-redux';
 import NoteEditor from './NoteEditor';
 import { setNotes, updateSelectedNoteTitle, updateSelectedNoteBody, updateSelectedNote, addNoteHashtags } from '../../redux/notes-reducer';
+import { settings } from '../../settings';
 
 class NoteEditorContainer extends React.Component {
     changeTitle = (changedTitle) => {
@@ -18,10 +19,10 @@ class NoteEditorContainer extends React.Component {
     }
 
     saveNote = (note) => {
-        axios.post(`http://localhost:2000/notes`, note)
+        axios.post(settings.notesUrl, note)
         .then(response => {
             this.props.updateSelectedNote(response.data);
-            axios.get(`http://localhost:2000/notes`)
+            axios.get(settings.notesUrl)
             .then(response => {
                 this.props.setNotes(response.data.notes);
             })
@@ -29,10 +30,10 @@ class NoteEditorContainer extends React.Component {
     }
 
     deleteNote = (note) => {
-        axios.delete(`http://localhost:2000/notes/${note.id}`)
+        axios.delete(`${settings.notesUrl}/${note.id}`)
         .then(() => {
             this.props.updateSelectedNote({title: '', text: ''});
-            axios.get(`http://localhost:2000/notes`)
+            axios.get(settings.notesUrl)
             .then(response => {
                 this.props.setNotes(response.data.notes);
             })

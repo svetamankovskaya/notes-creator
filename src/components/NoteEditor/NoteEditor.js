@@ -33,7 +33,6 @@ const NoteEditor = (props) => {
   };
 
   let saveNote = () => {
-    console.log(props.note);
     props.saveNote(props.note);
   }
 

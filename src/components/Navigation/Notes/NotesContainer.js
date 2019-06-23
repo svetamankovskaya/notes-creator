@@ -3,11 +3,11 @@ import * as axios from 'axios';
 import { connect } from 'react-redux';
 import { setNotes, chooseSelectedNote } from '../../../redux/notes-reducer';
 import Notes from './Notes';
-
+import { settings } from '../../../settings';
 
 class NotesContainer extends React.Component {
     componentDidMount() {
-        axios.get(`http://localhost:2000/notes`)
+        axios.get(settings.notesUrl)
             .then(response => {
                 this.props.setNotes(response.data.notes);
             });
