@@ -1,0 +1,143 @@
+%note-header-footer{
+  background-color: gold;
+  display: flex;
+  height: 56px;
+  width: 100%;
+}
+
+%textarea{
+  outline: none;
+  border: 0;
+  margin: auto 0;
+}
+
+%wrapper-button{
+  width: 10%;
+  &:hover{
+    transition: background-color 0.5s;
+    background-color: #ecebd885;
+  }
+}
+
+%button {
+  width: 100%;
+  height: 36px;
+  cursor: pointer;
+  border: none;
+  opacity: 0.5;
+  padding: 0;
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.noteEditor{
+    grid-area: editor;
+    background: rgb(137, 136, 136);
+
+    div{
+      .newNoteButton{
+        display: inline-block;
+        border-radius: 4px;
+        background-color: #ecebd885;
+        border: none;
+        color: #FFFFFF;
+        text-align: center;
+        font-size: 15px;
+        padding: 15px;
+        width: 180px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+
+        span {
+          cursor: pointer;
+          display: inline-block;
+          position: relative;
+          transition: 0.5s;
+          &:after {
+            content: '\FF0B';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+          }
+          &:hover{
+
+            span {
+              padding-right: 25px;
+              &:after {
+                opacity: 1;
+                right: 0;
+              }
+            }
+          } 
+        }
+      }
+    }
+
+    .noteWrapper{
+      width: 500px;
+      height: calc(100vh-30px);
+      margin: 5px auto;
+
+      .noteTitle{
+        @extend %note-header-footer;
+        
+        textarea{
+          @extend %textarea;
+          width: 80%;
+          font-size: 18px;
+          padding: 15px 10px;
+          background-color: transparent;
+        }
+
+        .saveNoteButton{
+          @extend %wrapper-button;
+          padding: 10px 0px 10px 10px;
+          
+          button{
+            @extend %button;
+            background: url('../../images/save.png') no-repeat;
+            background-size: contain;
+            margin: 0;
+          }
+        }
+
+        .deleteNoteButton{
+          @extend %wrapper-button;
+          padding: 10px 0px 10px 10px;
+
+          button{
+            @extend %button;
+            background: url('../../images/close.png') no-repeat;
+            background-size: contain;
+            margin-left: 10px;
+            margin: 0;
+          }
+        }
+      }
+
+      .noteText{
+        height: 420px;
+
+        textarea{
+          @extend %textarea;
+          width: 470px;
+          height: 390px;
+          font-size: 16px;
+          padding: 15px;
+          background-color:  rgba(242, 242, 210, 0.79);
+        }
+      }
+
+      .hashtags{
+        @extend %note-header-footer;
+                
+        div{
+          margin: 5px;
+        }
+      }
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './NoteEditor.module.css';
+import classes from './NoteEditor.module.scss';
 
 const NoteEditor = (props) => {
   let newTitleElement = React.createRef();

@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Notes.module.css';
+import classes from './Notes.module.scss';
 
 let Hashtag = (props) => {
     if (!props.note.hashtags) {

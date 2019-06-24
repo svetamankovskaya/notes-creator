@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './SearchButton.module.css';
+import classes from './SearchButton.module.scss';
 
 const SearchButton = (props) => {
     let newFilterWord = React.createRef();

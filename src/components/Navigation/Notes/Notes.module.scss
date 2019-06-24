@@ -1,0 +1,16 @@
+.noteWrapper{
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 0 2px white;
+    &:hover{
+        transition: background-color 1s;
+        background-color: #ecebd885;
+    }
+    .hashtags{
+        display: flex;
+
+        div{
+            margin: 5px;
+        }
+    }
+}
