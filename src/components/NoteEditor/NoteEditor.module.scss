@@ -63,17 +63,18 @@
             right: -20px;
             transition: 0.5s;
           }
-          &:hover{
-
-            span {
-              padding-right: 25px;
-              &:after {
-                opacity: 1;
-                right: 0;
-              }
-            }
-          } 
         }
+
+        &:hover{
+
+          span {
+            padding-right: 25px;
+            &:after {
+              opacity: 1;
+              right: 0;
+            }
+          }
+        } 
       }
     }
 
