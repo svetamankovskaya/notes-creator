@@ -20,9 +20,9 @@ const NoteEditor = (props) => {
 
   let getUnique = (arr) => {
     var i = 0,
-    current,
-    length = arr.length,
-    unique = [];
+      current,
+      length = arr.length,
+      unique = [];
     for (; i < length; i++) {
       current = arr[i];
       if (!~unique.indexOf(current)) {
@@ -33,7 +33,11 @@ const NoteEditor = (props) => {
   };
 
   let saveNote = () => {
-    props.saveNote(props.note);
+    if(props.note.title&&props.note.text){
+      props.saveNote(props.note);
+    } else {
+      alert('Введите название и текст заметки!')
+    }
   }
 
   let deleteNote = () => {
@@ -45,7 +49,7 @@ const NoteEditor = (props) => {
   }
 
   return (
-        <div className={classes.noteEditor}>
+    <div className={classes.noteEditor}>
       <div>
         <button className={classes.newNoteButton} onClick={clearNoteInfo}>
           <span>Новая заметка</span>
@@ -53,15 +57,20 @@ const NoteEditor = (props) => {
       </div>
       <div className={classes.noteWrapper}>
         <div className={classes.noteTitle}>
-          <button onClick={saveNote}>Save</button>
+          <div className={classes.saveNoteButton}>
+            <button onClick={saveNote}></button>
+          </div>
           <textarea onChange={onTitleChange} ref={newTitleElement} value={props.note.title} placeholder="Название заметки" />
-          <button onClick={deleteNote}>Delete</button>
+          <div className={classes.deleteNoteButton}>
+            <button onClick={deleteNote}></button>
+          </div>
         </div>
+
         <div className={classes.noteText}>
           <textarea onChange={onNoteBodyChange} ref={newNoteBody} value={props.note.text} placeholder="Введите текст заметки" />
         </div>
         <div className={classes.hashtags} >
-        {props.note.hashtags ? props.note.hashtags.map((hashtag, i) => <div key={i}>{hashtag}</div> ) : 'Хештеги'}
+          {props.note.hashtags ? props.note.hashtags.map((hashtag, i) => <div key={i}>{hashtag}</div>) : ''}
         </div>
       </div>
 

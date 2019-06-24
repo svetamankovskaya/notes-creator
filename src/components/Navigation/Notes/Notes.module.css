@@ -1,7 +1,12 @@
 .noteWrapper{
     width: 100%;
-    border: 1px solid black;
     cursor: pointer;
+    box-shadow: 0 0 2px white;
+}
+
+.noteWrapper:hover{
+    transition: background-color 1s;
+    background-color: #ecebd885;
 }
 
 .hashtags{

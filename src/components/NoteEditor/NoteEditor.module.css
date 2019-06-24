@@ -1,30 +1,29 @@
 .noteEditor{
     grid-area: editor;
-    background: rgba(168, 159, 159, 0.671);
+    background: rgb(137, 136, 136);
 }
 
 .noteWrapper{
     width: 500px;
-    height: 500px;
+    height: calc(100vh-30px);
     margin: 5px auto;
 }
 
 .noteTitle{
-  height: 40px;
+  display: flex;
+  height: 56px;
   background-color: gold;
 }
 
 .noteTitle textarea{
-  width: 70%;
+  width: 80%;
+  font-size: 18px;
+  padding: 15px 10px;
   background-color: transparent;
   outline: none;
   padding: auto 0;
   margin: auto 0;
   border: 0;
-}
-
-.noteTitle button{
-  width: 10%;
 }
 
 .noteText{
@@ -34,15 +33,16 @@
 .noteText textarea{
   width: 470px;
   height: 390px;
+  font-size: 16px;
   outline: none;
   padding: 15px;
   border: 0;
-  background-color:  rgba(228, 228, 24, 0.384);
+  background-color:  rgba(242, 242, 210, 0.79);
   margin: 0 auto;
 }
 
 .hashtags{
-  height: 40px;
+  height: 56px;
   width: 100%;
   background-color: gold;
   display: flex;
@@ -55,7 +55,7 @@
 .newNoteButton{
   display: inline-block;
   border-radius: 4px;
-  background-color: #f1410bc9;
+  background-color: #ecebd885;
   border: none;
   color: #FFFFFF;
   text-align: center;
@@ -90,4 +90,57 @@
 .newNoteButton:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.noteTitle .saveNoteButton{
+  width: 10%;
+  padding: 10px 0px 10px 10px;
+}
+
+.noteTitle .saveNoteButton:hover{
+  transition: background-color 0.5s;
+  background-color: #ecebd885;
+}
+
+.noteTitle .saveNoteButton button{
+  width: 100%;
+  height: 36px;
+  background: url('../../images/save.png') no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+  opacity: 0.6;
+  padding: 0;
+  margin: 0;
+}
+
+.saveNoteButton button:hover{
+  opacity: 1;
+}
+
+.noteTitle .deleteNoteButton{
+  width: 10%;
+  padding: 10px 0px 10px 10px;
+}
+
+.noteTitle .deleteNoteButton:hover{
+  transition: background-color 0.5s;
+  background-color: #ecebd885;
+}
+
+.noteTitle .deleteNoteButton button{
+  width: 100%;
+  height: 36px;
+  background: url('../../images/close.png') no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  border: none;
+  opacity: 0.5;
+  margin-left: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.noteTitle .deleteNoteButton button:hover{
+  opacity: 1;
 }

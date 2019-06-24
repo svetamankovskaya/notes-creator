@@ -1,11 +1,22 @@
 import React from 'react';
 import classes from './Notes.module.css';
 
+let Hashtag = (props) => {
+    if (!props.note.hashtags) {
+        return <div></div>
+    } else {
+        let hashtagsElements = props.note.hashtags.map((hashtag, i) => <div key={i}>{hashtag}</div>)
+        return <div className={classes.hashtags}>
+            {hashtagsElements}
+        </div>
+    }
+}
+
 let Note = (props) => {
     return <div className={classes.noteWrapper}
         onClick={() => { props.onSelectedNoteChanged(props.note) }}>
         <div>{props.note.title}</div>
-        <div className={classes.hashtags}>{props.note.hashtags.map((hashtag, i) => <div key={i}>{hashtag}</div>)}</div>
+        <div><Hashtag note={props.note} /></div>
     </div>
 }
 

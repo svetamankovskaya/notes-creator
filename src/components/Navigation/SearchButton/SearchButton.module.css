@@ -12,6 +12,7 @@
 .searchButton{
     width: 10%;
     height: 28px;
+    padding-left: 5px;
 }
 
 .searchButton button{
@@ -22,10 +23,6 @@
     cursor: pointer;
     border: none;
     opacity: 0.5;
-}
-
-.searchButton:hover{
-    color: red;
 }
 
 .searchButton button:hover{
